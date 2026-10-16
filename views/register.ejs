@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2>Create Account</h2>
+
+    <form action="/register" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Enter your name" required>
+
+        <input type="email" name="email" placeholder="Enter your email" required>
+
+        <input type="password" name="password" placeholder="Create password" minlength="8" required>
+
+        <label for="profilePicture">Select Profile Picture</label>
+
+        <input
+            type="file"
+            id="profilePicture"
+            name="profilePicture"
+            accept=".jpg,.jpeg,.png"
+            required
+        >
+
+        <p>Allowed formats: JPG, JPEG, PNG. Maximum size: 2 MB.</p>
+
+        <button type="submit">Register</button>
+
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+    </form>
+
+    <p>Already have an account? <a href="/login">Login</a></p>
+</body>
+</html>
